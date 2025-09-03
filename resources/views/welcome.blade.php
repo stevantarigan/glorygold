@@ -859,7 +859,8 @@
             <h2 data-aos="fade-up" data-aos-duration="1000">Investasi Emas Murni untuk Masa Depan</h2>
             <p data-aos="fade-up" data-aos-delay="400">Glory Gold menghadirkan emas batangan asli dengan kualitas
                 terbaik dan harga kompetitif untuk mendukung perjalanan investasi Anda.</p>
-            <a href="#produk" class="btn" data-aos="zoom-in" data-aos-delay="800">Jelajahi Produk</a>
+            <a href="#produk" class="btn" data-aos="zoom-in" data-aos-delay="800">Jelajahi Emas</a>
+            <a href="#produk" class="btn" data-aos="zoom-in" data-aos-delay="800">Jelajahi Perak</a>
         </div>
     </section>
 
@@ -892,7 +893,7 @@
             </div>
             <div class="card" data-aos="flip-left" data-aos-delay="400">
                 <div class="card-img">
-                    <img src="https://images.unsplash.com/photo-1596944946756-89483acb4707?auto=format&fit=crop&w=600&q=80"
+                    <img src="images/5g.jpeg" alt="Emas 5 Gram">
                         alt="Emas 5 Gram">
                 </div>
                 <div class="card-content">
@@ -904,7 +905,7 @@
             </div>
             <div class="card" data-aos="flip-left" data-aos-delay="600">
                 <div class="card-img">
-                    <img src="https://images.unsplash.com/photo-1596944946756-89483acb4707?auto=format&fit=crop&w=600&q=80"
+                    <img src="images/10g.jpeg" alt="Emas 10 Gram">
                         alt="Emas 10 Gram">
                 </div>
                 <div class="card-content">
@@ -983,7 +984,7 @@
         </div>
     </section>
 
-    <section class="parallax-section" style="background-image: url('images/emas.jpeg');">
+    <section class="parallax-section" style="background-image: url('images/emas.jpg');">
         <div class="parallax-overlay"></div>
         <div class="parallax-content">
             <h2 data-aos="fade-up">Masa Depan yang Cerah</h2>
