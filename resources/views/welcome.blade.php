@@ -827,6 +827,64 @@
                 padding: 12px 25px;
             }
         }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-toggle {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background: #fff;
+            min-width: 140px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+            z-index: 1001;
+            border-radius: 8px;
+            top: 35px;
+            left: 0;
+            flex-direction: column;
+            padding: 10px 0;
+        }
+
+        .dropdown-menu a {
+            color: var(--dark);
+            padding: 10px 20px;
+            text-decoration: none;
+            display: block;
+            font-size: 1rem;
+            transition: background 0.2s;
+        }
+
+        .dropdown-menu a:hover {
+            background: var(--gray);
+            color: var(--secondary);
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        @media (max-width: 992px) {
+            .dropdown-menu {
+                position: static;
+                box-shadow: none;
+                background: transparent;
+                padding: 0;
+            }
+
+            .dropdown-menu a {
+                padding: 10px 0 10px 30px;
+                background: none;
+            }
+        }
     </style>
 </head>
 
@@ -841,7 +899,13 @@
         </button>
         <nav id="nav">
             <a href="#">Beranda</a>
-            <a href="#produk">Produk</a>
+            <div class="dropdown">
+                <a href="#produk" class="dropdown-toggle">Produk <i class="fas fa-caret-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="#produk-emas">Emas</a>
+                    <a href="#produk-perak">Perak</a>
+                </div>
+            </div>
             <a href="#tentang">Tentang</a>
             <a href="#keunggulan">Keunggulan</a>
             <a href="#kontak">Kontak</a>
@@ -865,7 +929,7 @@
 
     <!-- Parallax Section 1 -->
     <section class="parallax-section"
-        style="background-image: url('https://images.unsplash.com/photo-1625472603517-1b0dc72846ab?auto=format&fit=crop&w=1600&q=80');">
+        style="background-image: url('https://i.pinimg.com/1200x/8e/41/17/8e4117fabfc8a740bb83923c3ec14a93.jpg');">
         <div class="parallax-overlay"></div>
         <div class="parallax-content">
             <h2 data-aos="fade-up">Investasi yang Tahan Lama</h2>
@@ -881,7 +945,7 @@
         <div class="products-container">
             <div class="card" data-aos="flip-left" data-aos-delay="200">
                 <div class="card-img">
-                    <img src="images/1g.jpeg" alt="Emas 1 Gram">
+                    <img src="https://www.royalmint.com/globalassets/bullion/images/products/bars/rmr/rmgm001g.png" alt="Emas 1 Gram" style="width: 250px; height: auto; display: block; margin: 0 auto;">
                 </div>
                 <div class="card-content">
                     <h3>Emas Batangan 1 Gram</h3>
@@ -892,8 +956,8 @@
             </div>
             <div class="card" data-aos="flip-left" data-aos-delay="400">
                 <div class="card-img">
-                    <img src="https://images.unsplash.com/photo-1596944946756-89483acb4707?auto=format&fit=crop&w=600&q=80"
-                        alt="Emas 5 Gram">
+                    <img src="https://tse2.mm.bing.net/th/id/OIP.TjAlCV4BFRVnMA2D_4-nTQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
+                        alt="Emas 5 Gram" style="width: 250px; height: auto; display: block; margin: 0 auto;">
                 </div>
                 <div class="card-content">
                     <h3>Emas Batangan 5 Gram</h3>
@@ -904,8 +968,8 @@
             </div>
             <div class="card" data-aos="flip-left" data-aos-delay="600">
                 <div class="card-img">
-                    <img src="https://images.unsplash.com/photo-1596944946756-89483acb4707?auto=format&fit=crop&w=600&q=80"
-                        alt="Emas 10 Gram">
+                    <img src="https://goldsilvermart.ca/wp-content/uploads/2023/07/10-gram-Valcambi-Gold-Bar.jpg"
+                        alt="Emas 10 Gram" style="width: 250px; height: auto; display: block; margin: 0 auto;">
                 </div>
                 <div class="card-content">
                     <h3>Emas Batangan 10 Gram</h3>
@@ -914,12 +978,36 @@
                     <a href="#" class="card-btn">Beli Sekarang</a>
                 </div>
             </div>
+            <div class="card" data-aos="flip-left" data-aos-delay="600">
+                <div class="card-img">
+                    <img src="https://logammulia.com/uploads/ngc_master_item/614997838e7ec_20210921152747-1.jpg"
+                        alt="Perak 250 Gram" style="width: 370px; height: auto; display: block; margin: 0 auto;">
+                </div>
+                <div class="card-content">
+                    <h3>Perak Batangan 250 Gram</h3>
+                    <p>Investasi jangka panjang dengan perak 250 gram berkualitas tinggi.</p>
+                    <span class="price">Rp 5.375.000</span>
+                    <a href="#" class="card-btn">Beli Sekarang</a>
+                </div>
+            </div>
+            <div class="card" data-aos="flip-left" data-aos-delay="600">
+                <div class="card-img">
+                    <img src="https://www.logammulia.com/uploads/ngc_master_item/6149981fe749b_20210921153023-2.jpg"
+                        alt="Perak 500 Gram" style="width: 370px; height: auto; display: block; margin: 0 auto;">
+                </div>
+                <div class="card-content">
+                    <h3>Perak Batangan 500 Gram</h3>
+                    <p>Investasi jangka panjang dengan perak 500 gram berkualitas tinggi.</p>
+                    <span class="price">Rp 10.750.000</span>
+                    <a href="#" class="card-btn">Beli Sekarang</a>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Parallax Section 2 -->
     <section class="parallax-section"
-        style="background-image: url('https://images.unsplash.com/photo-1625472603517-1b0dc72846ab?auto=format&fit=crop&w=1600&q=80');">
+        style="background-image: url('https://i.pinimg.com/1200x/8e/41/17/8e4117fabfc8a740bb83923c3ec14a93.jpg');">
         <div class="parallax-overlay"></div>
         <div class="parallax-content">
             <h2 data-aos="fade-up">Kualitas Terjamin</h2>
@@ -941,7 +1029,7 @@
                 <a href="#kontak" class="btn">Hubungi Kami</a>
             </div>
             <div class="about-image" data-aos="fade-left" data-aos-delay="300">
-                <img src="https://images.unsplash.com/photo-1625472603517-1b0dc72846ab?auto=format&fit=crop&w=600&q=80"
+                <img src="https://i.pinimg.com/1200x/f4/31/bb/f431bbf07b68c4b592fcad51347b9aaf.jpg"
                     alt="Tentang Glory Gold">
             </div>
         </div>
@@ -983,7 +1071,7 @@
         </div>
     </section>
 
-    <section class="parallax-section" style="background-image: url('images/emas.jpeg');">
+    <section class="parallax-section" style="background-image: url('https://i.pinimg.com/1200x/9c/39/a3/9c39a3a6f6b0f40da1cc9222e273f6e5.jpg');">
         <div class="parallax-overlay"></div>
         <div class="parallax-content">
             <h2 data-aos="fade-up">Masa Depan yang Cerah</h2>
