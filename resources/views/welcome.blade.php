@@ -397,15 +397,18 @@
         .card-img {
             width: 100%;
             height: 250px;
-            overflow: hidden;
-            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
         }
 
         .card-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            /* gambar muat penuh */
+            display: block;
         }
 
         .card:hover .card-img img {
@@ -875,48 +878,39 @@
         </div>
     </section>
 
+
     <section id="produk" class="products">
         <div class="section-title" data-aos="fade-up">
             <h2>Produk Kami</h2>
         </div>
         <div class="products-container">
             <div class="card" data-aos="flip-left" data-aos-delay="200">
-                <div class="card-img">
-                    <img src="images/1g.jpeg" alt="Emas 1 Gram">
-                </div>
+                <div class="card-img"> <img src="images/1g.jpeg" alt="Emas 1 Gram"> </div>
                 <div class="card-content">
                     <h3>Emas Batangan 1 Gram</h3>
-                    <p>Investasi mudah dengan emas 1 gram, cocok untuk pemula.</p>
-                    <span class="price">Rp 1.200.000</span>
-                    <a href="#" class="card-btn">Beli Sekarang</a>
+                    <p>Investasi mudah dengan emas 1 gram, cocok untuk pemula.</p> <span class="price">Rp
+                        1.200.000</span> <a href="#" class="card-btn">Beli Sekarang</a>
                 </div>
             </div>
             <div class="card" data-aos="flip-left" data-aos-delay="400">
-                <div class="card-img">
-                    <img src="images/5g.jpeg" alt="Emas 5 Gram">
-                        alt="Emas 5 Gram">
-                </div>
+                <div class="card-img"> <img src="images/5g.jpeg" alt="Emas 5 Gram"> </div>
                 <div class="card-content">
                     <h3>Emas Batangan 5 Gram</h3>
-                    <p>Pilihan tepat untuk investasi menengah dengan nilai yang stabil.</p>
-                    <span class="price">Rp 5.800.000</span>
-                    <a href="#" class="card-btn">Beli Sekarang</a>
+                    <p>Pilihan tepat untuk investasi menengah dengan nilai yang stabil.</p> <span class="price">Rp
+                        5.800.000</span> <a href="#" class="card-btn">Beli Sekarang</a>
                 </div>
             </div>
             <div class="card" data-aos="flip-left" data-aos-delay="600">
-                <div class="card-img">
-                    <img src="images/10g.jpeg" alt="Emas 10 Gram">
-                        alt="Emas 10 Gram">
-                </div>
+                <div class="card-img"> <img src="images/10g.jpeg" alt="Emas 10 Gram"> </div>
                 <div class="card-content">
                     <h3>Emas Batangan 10 Gram</h3>
-                    <p>Investasi jangka panjang dengan emas 10 gram berkualitas tinggi.</p>
-                    <span class="price">Rp 11.500.000</span>
-                    <a href="#" class="card-btn">Beli Sekarang</a>
+                    <p>Investasi jangka panjang dengan emas 10 gram berkualitas tinggi.</p> <span class="price">Rp
+                        11.500.000</span> <a href="#" class="card-btn">Beli Sekarang</a>
                 </div>
             </div>
         </div>
     </section>
+
 
     <!-- Parallax Section 2 -->
     <section class="parallax-section"
