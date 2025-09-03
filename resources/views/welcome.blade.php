@@ -60,21 +60,56 @@
         }
 
         /* Header */
-        header {
-            background: rgba(249, 247, 240, 0.95);
-            padding: 15px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-            transition: var(--transition);
-        }
+            header {
+  position: relative;
+  background: rgba(249, 247, 240, 0.95);
+  overflow: visible; /* penting biar dropdown keluar */
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  transition: var(--transition);
+}
+        #header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+  z-index: -1;
+}
+
+
+#header.header-emas::before {
+  background: linear-gradient(135deg,
+    #b8860b,   /* dark goldenrod */
+    #d4af37,   /* classic gold */
+    #ffd700,   /* bright gold */
+    #f5deb3,   /* wheat (soft highlight) */
+    #d4af37,   /* balik ke gold */
+    #b8860b    /* deep shade */
+  );
+  background-size: 400% 400%;
+  animation: goldShimmer 8s ease infinite;
+  opacity: 1;
+}
+@keyframes goldShimmer {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+#header.header-perak::before {
+  background: linear-gradient(135deg, #C0C0C0, #A9A9A9);
+  opacity: 1;
+}
 
         header.scrolled {
             padding: 10px 40px;
@@ -87,13 +122,17 @@
         }
 
         .logo h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 800;
-        }
+  background: linear-gradient(90deg, #b8860b, #ffd700, #d4af37);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+}
+
+.logo h1 span {
+  background: inherit;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
         .logo span {
             color: var(--primary);
@@ -833,20 +872,71 @@
 <body>
 
     <header id="header">
-        <div class="logo" data-aos="fade-right">
-            <h1>Glory <span>Gold</span></h1>
-        </div>
-        <button class="nav-btn" id="navToggle">
-            <i class="fas fa-bars"></i>
-        </button>
-        <nav id="nav">
-            <a href="#">Beranda</a>
-            <a href="#produk">Produk</a>
-            <a href="#tentang">Tentang</a>
-            <a href="#keunggulan">Keunggulan</a>
-            <a href="#kontak">Kontak</a>
-        </nav>
-    </header>
+  <div class="logo" data-aos="fade-right">
+    <h1>Glory <span>Gold</span></h1>
+  </div>
+  <button class="nav-btn" id="navToggle">
+    <i class="fas fa-bars"></i>
+  </button>
+  <nav id="nav">
+    <a href="#">Beranda</a>
+    <div class="dropdown">
+      <a href="#produk">Produk</a>
+      <div class="dropdown-content">
+        <a href="#" id="emas">Emas</a>
+        <a href="#" id="perak">Perak</a>
+      </div>
+    </div>
+    <a href="#tentang">Tentang</a>
+    <a href="#keunggulan">Keunggulan</a>
+    <a href="#kontak">Kontak</a>
+  </nav>
+</header>
+
+
+<style>
+/* Dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown .dropbtn {
+    cursor: pointer;
+    padding: 8px 16px;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+  border-radius: 6px;
+  min-width: 140px;
+  z-index: 2000; /* di atas header */
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background: #f1f1f1;
+}
+
+/* Muncul ketika hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+</style>
+
 
     <section class="hero">
         <div class="floating-elements">
@@ -1098,6 +1188,25 @@
         // Header scroll effect
         const header = document.getElementById('header');
         const backToTop = document.getElementById('backToTop');
+const emas = document.getElementById("emas");
+const perak = document.getElementById("perak");
+
+emas.addEventListener("mouseenter", () => {
+  header.classList.add("header-emas");
+  header.classList.remove("header-perak");
+});
+emas.addEventListener("mouseleave", () => {
+  header.classList.remove("header-emas");
+});
+
+// Hover perak
+perak.addEventListener("mouseenter", () => {
+  header.classList.add("header-perak");
+  header.classList.remove("header-emas");
+});
+perak.addEventListener("mouseleave", () => {
+  header.classList.remove("header-perak");
+});
 
         window.addEventListener('scroll', () => {
             if (window.scrollY > 100) {
